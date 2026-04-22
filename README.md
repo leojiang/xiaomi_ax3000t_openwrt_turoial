@@ -51,6 +51,7 @@ AP (提供wifi链接）
 - 在浏览器输入192.168.1.1，你就会进入uboot界面
   <img width="1477" height="802" alt="image" src="https://github.com/user-attachments/assets/bd04090b-ef9f-45f9-84e1-ca48a663fca6" />
 - layout 选择 immortalwrt-w112
+  `这里有一点注意事项，在很多网上的教程，他们会告诉你需要先刷一个initramfs-factory.ubi包，才能继续刷sysupgrade包，这一点有待严正，反正我是没有刷这个依然成功了！`
 - 然后在文件选择器中选择你电脑上下载好的 sysupgrade 包然后点upload上传，成功以后会看到
   <img width="1386" height="898" alt="image" src="https://github.com/user-attachments/assets/8b980ab4-8380-4859-ac35-1191d67543ee" />
 - 点击update开始升级，机器会自动重启
