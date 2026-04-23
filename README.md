@@ -83,7 +83,13 @@ AP (提供wifi链接）
   - 创建一个目录/etc/openclash/core
   - 下载一个匹配的内核安装包： http://github.com/MetaCubeX/mihomo/releases， 这里我所用的环境匹配的是mihomo-linux-arm64-v1.19.23.gz
 **
-
+  - 解压后改名为 clash_meta 放在/etc/openclash/core 目录下
+  - chmod +x clash_meta
+  - /etc/init.d/openclash stop
+  - /etc/init.d/openclash start
+  - 登录 OpenWrt → 服务 → OpenClash → 版本更新, Dev 内核：显示版本号、绿色 ✅
+- 后续的操作就是配置你的订阅，这里就不过多赘述，跟你用pc上的vpn软件类似
+  
 #### 后续你有两条路可以走！
 - 所有流量走旁路由
 - 部分家里的网络设备走旁路由
