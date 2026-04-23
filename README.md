@@ -67,7 +67,22 @@ AP (提供wifi链接）
 - 然后退出设置以后 save/apply， 应用刚才的设置。因为ip的变化，你的电脑会断网，重新输入192.168.1.3才能进入管理后台了！
 - 将旁路由器接的lan口接入你的主路由的lan口，电脑不再跟旁路由用网线连接，电脑连接主路由的wifi，你在浏览器输入192.168.1.3，你会发现已经能够通过wifi访问openwrt的管理后台
 
-#### 安装openclash 
+#### 安装openclash
+- ssh root@192.168.1.3
+- 检查旁路由的网络连通性
+  - ping 119.29.29.29 -c 3
+  - ping mirrors.tencent.com -c 3
+  - 如果ping 119.29.29.29失败：说明旁路由本身无法访问公网，优先检查光猫 / 主路由的配置。
+  - 如果 IP 能通、域名 ping 失败：说明DNS 解析故障，进入openwrt后台 → Network → Interfaces → LAN → Edit → Advanced Settings，在Use custom DNS servers里填写：119.29.29.29 和 23.5.5.5 这两个dns地址
+  - 执行nslookup mirrors.tencent.com， 如果看到地址，说明网络连通性修复
+- 安装openclash
+  - 在ssh 命令行执行 opkg update
+  - 安装依赖包 opkg install bash dnsmasq-full curl ca-bundle ip-full ruby ruby-yaml kmod-tun kmod-inet-diag unzip kmod-nft-tproxy luci-compat luci luci-base
+  - 下载openclash 安装包： https://github.com/vernesong/OpenClash/releases
+  - opkg install 你的安装包
+  - 创建一个目录/etc/openclash/core
+  - 下载一个匹配的内核安装包： http://github.com/MetaCubeX/mihomo/releases， 这里我所用的环境匹配的是mihomo-linux-arm64-v1.19.23.gz
+**
 
 #### 后续你有两条路可以走！
 - 所有流量走旁路由
